@@ -59,11 +59,11 @@ public class UserController {
         if (userList.size() == 0)//此用户不存在
         {
             modelMap.addAttribute("message", "用户名或者密码不正确");
-            page = "login";
+            page = "error";
         } else {
             if (!userList.get(0).getPassword().equals(EncrypeUtil.shaEncode(user.getPassword()))) {
                 modelMap.addAttribute("message", "用户名或者密码不正确");
-                page = "login";
+                page = "error";
             } else {
                 User loginUser = userList.get(0);
                 request.getSession().setAttribute("user", loginUser);
